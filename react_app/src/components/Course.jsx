@@ -62,7 +62,7 @@ function AllCourses() {
   };
 
   const handleRazorpayLoaded = () => {
-    // console.log('Razorpay script loaded successfully');
+    console.log('Razorpay script loaded successfully');
   };
 
   const handleZeroPrice = async (courseId) => {
@@ -91,12 +91,13 @@ function AllCourses() {
   const handleEnrollCourse = async (courseId) => {
     try {
       const token = localStorage.getItem('token');
+      console.log("token---------"+token)
       const response = await axios.post(`http://localhost:5000/razorpay/payment`, { courseId }, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
       const { amount, order_id, key_id, course_name, description, contact, name, email } = response.data;
-
+      
       const options = {
         key: key_id,
         amount: amount,
@@ -302,11 +303,13 @@ function AllCourses() {
                   <button className="btn btn-secondary me-2" onClick={() => handleEnrollCourse(course._id)}>
                     Enroll
                   </button>
+                
                 )}
                 <Link to={`/courses/${course._id}/feedback`}>
                   <button className="btn btn-primary">Explore</button>
                 </Link>
               </div>
+                console.log("        uhlhljlkkhklhl         ")
             </div>
           </div>
         </div>

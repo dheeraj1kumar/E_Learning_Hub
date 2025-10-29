@@ -46,3 +46,167 @@
     margin: 20px;
   }
   
+  .certificate-body-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.certificate-body {
+    width: 80%;
+    border: 10px solid #ddd;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.certificate-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.certificate-logo {
+    width: 80px;
+    margin-right: 20px;
+}
+
+.certificate-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.certificate-content {
+    text-align: center;
+}
+
+.certificate-marquee {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.certificate-assignment {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.certificate-person {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.certificate-reason {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+body {
+  background: #f4f4f9; /* Light grey background */
+  font-family: 'Arial', sans-serif;
+}
+
+.certificate-body-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.certificate-body {
+  width: 80%;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.certificate-border {
+  border: 10px solid #ddd;
+  padding: 20px;
+  position: relative;
+  background: #fffaf0; /* Light cream background */
+  border-radius: 15px; /* Rounded corners for a smoother look */
+}
+
+.certificate-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.certificate-logo {
+  width: 80px;
+  margin-right: 20px;
+}
+
+.certificate-title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.certificate-content {
+  text-align: center;
+}
+
+.certificate-marquee {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #444; /* Dark grey for better readability */
+}
+
+.certificate-assignment {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #666; /* Medium grey */
+}
+
+.certificate-person {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333; /* Dark grey */
+}
+
+.certificate-reason {
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: #666; /* Medium grey */
+}
+
+.certificate-signature {
+  margin-top: 50px;
+  text-align: right;
+  margin-right: 50px;
+}
+
+.certificate-signature-img {
+  width: 150px;
+  height: auto;
+}
+
+.certificate-signature-text {
+  font-size: 1em;
+  margin-top: 5px;
+  font-weight: bold;
+  color: #333; /* Dark grey */
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+}

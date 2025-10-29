@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // seed()
 
-mongoose.connect('mongodb://127.0.0.1:27017/E-Learning-Hub', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://127.0.0.1:27017/ELearning', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(port, () => {
@@ -74,7 +74,7 @@ app.post('/add-lecture',authMiddleware.verifyToken, userController.addLecture);
 app.post('/update-lecture/:lectureId',authMiddleware.verifyToken, userController.updateLecture);
 
 app.get('/courses', userController.getAllCourses);
-// app.post('/enroll-course/:courseId', authMiddleware.verifyToken, userController.enrollCourse);
+//app.post('/enroll-course/:courseId', authMiddleware.verifyToken, userController.enrollCourse);
 app.get('/my-courses', authMiddleware.verifyToken, userController.getMyCourses);
 app.get('/created-courses', authMiddleware.verifyToken, userController.getcreatedCourses);
 app.post('/add-course-progress', authMiddleware.verifyToken, userController.addCourseProgress);

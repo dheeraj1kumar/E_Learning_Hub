@@ -1,10 +1,9 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './Feedback.css'; // Import your CSS file
+import './Feedback.css';
 
 function Feedback() {
   const { courseId } = useParams();
@@ -12,14 +11,18 @@ function Feedback() {
   const [feedback, setFeedback] = useState('');
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [userFeedbacks, setUserFeedbacks] = useState([]); 
-  async function fetchData() {
+  const [userFeedbacks, setUserFeedbacks] = useState([]);
+
+  // ✅ useCallback prevents infinite loop in useEffect
+  const fetchData = useCallback(async () => {
     try {
       const courseResponse = await axios.get(`http://localhost:5000/single-course/${courseId}`);
       setCourse(courseResponse.data);
 
       const feedbackResponse = await axios.get(`http://localhost:5000/courses/${courseId}/feedback`);
-      const sortedFeedbacks = feedbackResponse.data.feedbacks.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      const sortedFeedbacks = feedbackResponse.data.feedbacks.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
       setUserFeedbacks(sortedFeedbacks);
       setLoading(false);
     } catch (error) {
@@ -31,12 +34,11 @@ function Feedback() {
         toast.error('Failed to fetch data. Please try again later.', { toastId: 'fetchError' });
       }
     }
-  }
+  }, [courseId]); // ✅ include courseId as dependency
 
   useEffect(() => {
-
     fetchData();
-  }, [courseId]);
+  }, [fetchData]);
 
   const handleRatingChange = (event) => {
     setRating(parseInt(event.target.value));
@@ -45,18 +47,20 @@ function Feedback() {
   const handleFeedbackChange = (event) => {
     setFeedback(event.target.value);
   };
- 
 
   const handleSubmit = async () => {
     try {
-      await axios.post(`http://localhost:5000/my-courses/${courseId}/feedback`, { rating, feedback }, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-      });
+      await axios.post(
+        `http://localhost:5000/my-courses/${courseId}/feedback`,
+        { rating, feedback },
+        {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        }
+      );
       toast.success('Feedback submitted successfully!', { toastId: 'feedbackSuccess' });
       setRating(1);
       setFeedback('');
-      fetchData();
-    
+      fetchData(); // ✅ re-fetch after submit
     } catch (error) {
       console.error('Error submitting feedback:', error);
       if (error.response) {
@@ -93,8 +97,8 @@ function Feedback() {
                     <li key={index}>
                       <p><strong>User:</strong> {feed.user.username}</p>
                       <p><strong>Time:</strong> {new Date(feed.createdAt).toLocaleString()}</p>
-                      <p><strong>Rating:</strong> {[...Array(Math.round(feed.rating))].map((_, index) => (
-                        <span key={index} className="star">&#9733;</span>
+                      <p><strong>Rating:</strong> {[...Array(Math.round(feed.rating))].map((_, i) => (
+                        <span key={i} className="star">&#9733;</span>
                       ))}</p>
                       <p><strong>Comment:</strong> {feed.feedback}</p>
                     </li>
@@ -132,4 +136,3 @@ function Feedback() {
 }
 
 export default Feedback;
-

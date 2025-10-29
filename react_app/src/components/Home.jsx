@@ -171,7 +171,7 @@ Our cutting-edge technology, coupled with our dedication to student success, set
       <div className="row    justify-content-center">
         <div className="col-md-3 mb-4" >
           <div className="card  cardsh  text-center " style={{ backgroundColor: '#e8f7f5' }}>
-            <img src="https://elevatifier.com/images/10%20(2).png" alt="Image 1"className=" rounded-circle mx-auto mt-3 img-thumbnail" style={{width: '80px', height: '80px', objectFit: 'cover'}} />
+            <img src="https://tse3.mm.bing.net/th/id/OIP.UlNqW-3U5hsSf7HI05XoVAHaDo?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Image 1"className=" rounded-circle mx-auto mt-3 img-thumbnail" style={{width: '80px', height: '80px', objectFit: 'cover'}} />
             <div className="card-body">
               <h5 className="card-title">Open to All</h5>
               <p className="card-text">Anyone from any domain can apply</p>
@@ -183,7 +183,7 @@ Our cutting-edge technology, coupled with our dedication to student success, set
         </div>
         <div className="col-md-3 mb-3">
           <div className="card  cardsh  text-center" style={{ backgroundColor: '#fdecef' }}>
-            <img src="https://elevatifier.com/images/9%20(2).png" alt="Image 1" className="rounded-circle mx-auto mt-3 img-thumbnail" style={{width: '80px', height: '80px', objectFit: 'cover'}}/>
+            <img src="https://www.interviewbit.com/blog/wp-content/uploads/2021/12/Python-Developer-Skills.png" alt="Image 1" className="rounded-circle mx-auto mt-3 img-thumbnail" style={{width: '80px', height: '80px', objectFit: 'cover'}}/>
             <div className="card-body">
               <h5 className="card-title">Certification</h5>
               <p className="card-text">Get a Certificate for your resume & portfolio</p>
@@ -197,7 +197,7 @@ Our cutting-edge technology, coupled with our dedication to student success, set
 
           <div className="col-md-3 mb-3">
             <div className="card  cardsh  text-center"  style={{ backgroundColor: '#eceffc' }}>
-              <img src="https://elevatifier.com/images/8%20(2).png" alt="Image 1"className="rounded-circle mx-auto mt-3 img-thumbnail" style={{width: '80px', height: '80px', objectFit: 'cover'}}/>
+              <img src="https://miro.medium.com/v2/resize:fit:1200/1*eOIBZsOq25EzUftXxKFC0w.jpeg" alt="Image 1"className="rounded-circle mx-auto mt-3 img-thumbnail" style={{width: '80px', height: '80px', objectFit: 'cover'}}/>
               <div className="card-body">
                 <h5 className="card-title">Life Time Access</h5>
                 <p className="card-text">Nonstop learning from anywhere anytime</p>
@@ -211,7 +211,7 @@ Our cutting-edge technology, coupled with our dedication to student success, set
         
         <div className="col-md-3 mb-3">
           <div className="card  cardsh  text-center" style={{ backgroundColor: '#fef7e8' }}>
-            <img src="https://elevatifier.com/images/7%20(2).png" alt="Image 1" className="rounded-circle mx-auto mt-3 img-thumbnail" style={{width: '80px', height: '80px', objectFit: 'cover'}} />
+            <img src="https://www.interviewbit.com/blog/wp-content/uploads/2021/12/Python-Developer-Skills.png" alt="Image 1" className="rounded-circle mx-auto mt-3 img-thumbnail" style={{width: '80px', height: '80px', objectFit: 'cover'}} />
             <div className="card-body">
               <h5 className="card-title">Affordable Price</h5>
               <p className="card-text">Cheapest price to give learning to everone</p>
@@ -226,8 +226,8 @@ Our cutting-edge technology, coupled with our dedication to student success, set
 
       <div className="row  mt-4 justify-content-center">
         <div className="col-md-7 ">
-        <div class="image-container1">
-    <img src="https://elevatifier.com/assets/images/about-banner.jpg" alt="Section 3 Image" class="img-fluid" />
+        <div class="image-container1 mt-3">
+    <img src="https://as1.ftcdn.net/v2/jpg/02/93/61/18/1000_F_293611878_sm3pgV5AyiwBzGGvoRz2j6C1a8qQcqvK.jpg" alt="Section 3 Image" class="img-fluid" />
   </div>
             </div>
         <div className="col-md-5 d-flex align-items-center">
