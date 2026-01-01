@@ -44,7 +44,7 @@ services:
     image: nginx:alpine
     container_name: nginx_proxy
     ports:
-      - "80:80"
+      - "81:81"
     depends_on:
       - frontend
       - backend
