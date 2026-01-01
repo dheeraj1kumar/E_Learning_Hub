@@ -29,7 +29,7 @@ pipeline {
                 )]) {
                     sh '''
                         echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin
-                        docker image project:latest $dockerHubUser/project:latest
+                        docker tag project:latest $dockerHubUser/project:latest
                         docker push $dockerHubUser/project:latest
                     '''
                 }
