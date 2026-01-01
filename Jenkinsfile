@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Code') {
             steps {
-                git url: "https://github.com/dheeraj1kumar/salon.git", branch: "main"
+                git url: "https://github.com/dheeraj1kumar/E_Learning_Hub.git", branch: "main"
             }
         }
 
