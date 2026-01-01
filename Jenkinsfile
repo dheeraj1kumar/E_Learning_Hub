@@ -12,7 +12,7 @@ pipeline {
     steps {
         sh '''
             echo "🛠️ Building and starting using Docker Compose..."
-            docker compose down --volumes || true
+            
             docker compose build --no-cache
             
         '''
