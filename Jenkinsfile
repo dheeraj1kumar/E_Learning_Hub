@@ -20,26 +20,26 @@ pipeline {
 }
 
 
-        stage("Push To DockerHub") {
-            steps {
-                withCredentials([usernamePassword(
-                    credentialsId: "dockerhub",
-                    usernameVariable: "dockerHubUser",
-                    passwordVariable: "dockerHubPass"
-                )]) {
-                    sh '''
-                        echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin
-                    docker image three_tier_backend:latest dheeraj1kumar/three_tier_backend:latest
-                    docker push dheeraj1kumar/three_tier_backend:latest
+        // stage("Push To DockerHub") {
+        //     steps {
+        //         withCredentials([usernamePassword(
+        //             credentialsId: "dockerhub",
+        //             usernameVariable: "dockerHubUser",
+        //             passwordVariable: "dockerHubPass"
+        //         )]) {
+        //             sh '''
+        //                 echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin
+        //             docker image three_tier_backend:latest dheeraj1kumar/three_tier_backend:latest
+        //             docker push dheeraj1kumar/three_tier_backend:latest
 
-                    docker image three_tier_frontend:latest dheeraj1kumar/three_tier_frontend:latest
-                    docker push dheeraj1kumar/three_tier_frontend:latest
+        //             docker image three_tier_frontend:latest dheeraj1kumar/three_tier_frontend:latest
+        //             docker push dheeraj1kumar/three_tier_frontend:latest
 
 
-                    '''
-                }
-            }
-        }
+        //             '''
+        //         }
+        //     }
+        // }
 
 
         stage('Deploy') {
