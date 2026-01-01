@@ -13,7 +13,7 @@ pipeline {
         sh '''
             echo "🛠️ Building and starting using Docker Compose..."
             
-            docker compose build 
+            docker-compose build 
             
         '''
     }
