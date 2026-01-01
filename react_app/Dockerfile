@@ -1,15 +1,14 @@
-# frontend/Dockerfile
-# build stage
-FROM node:18-alpine AS build
+# Frontend Dockerfile
+FROM node:18 AS build
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+COPY package.json package-lock.json* ./
+RUN npm install
 COPY . .
 RUN npm run build
 
-# production stage
-FROM nginx:stable-alpine
+FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
-# optionally copy custom nginx.conf if needed
-EXPOSE 80
+ENV HOST=0.0.0.0
+
+EXPOSE 3000
 CMD ["nginx", "-g", "daemon off;"]

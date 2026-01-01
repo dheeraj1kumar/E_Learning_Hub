@@ -1,16 +1,11 @@
-# backend/Dockerfile
-FROM node:18-alpine
+FROM node:20-alpine 
+ # or node:20
 
 WORKDIR /app
 
-# install dependencies first (use package-lock.json if present)
-COPY package*.json ./
-RUN npm ci --only=production
+# No need to upgrade npm manually, this image already supports npm 11+
+COPY package.json package-lock.json* ./
+RUN npm install
 
-# copy app
 COPY . .
-
-# expose and start
-ENV PORT=5000
-EXPOSE 5000
-CMD ["node", "index.js"]
+CMD ["npm", "start"]

@@ -1,0 +1,61 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: ./react_app
+    container_name: react_frontend
+    ports:
+      - "3000:3000"  # Accessible in browser as localhost:3000
+    environment:
+      - HOST=0.0.0.0
+    depends_on:
+      - backend
+    networks:
+      - elearning-net
+
+  backend:
+    build: ./node_app
+    container_name: node_backend
+    ports:
+      - "5000:5000"  # Accessible as localhost:5000
+    environment:
+      - MONGO_URL=mongodb://admin:admin123@mongo_db:27017/elearninghub?authSource=admin
+    depends_on:
+      - mongo
+    networks:
+      - elearning-net
+
+  mongo:
+    image: mongo:6.0
+    container_name: mongo_db
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: elearninghub
+    ports:
+      - "27017:27017"
+    networks:
+      - elearning-net
+    volumes:
+      - mongo_data:/data/db
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - elearning-net
+
+networks:
+  elearning-net:
+    driver: bridge
+
+volumes:
+  mongo_data:
