@@ -29,10 +29,10 @@ pipeline {
                 )]) {
                     sh '''
                         echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin
-                    docker tag three_tier_backend:latest dheeraj1kumar/three_tier_backend:latest
+                    docker image three_tier_backend:latest dheeraj1kumar/three_tier_backend:latest
                     docker push dheeraj1kumar/three_tier_backend:latest
 
-                    docker tag three_tier_frontend:latest dheeraj1kumar/three_tier_frontend:latest
+                    docker image three_tier_frontend:latest dheeraj1kumar/three_tier_frontend:latest
                     docker push dheeraj1kumar/three_tier_frontend:latest
 
 
